@@ -1,0 +1,6 @@
+select w.state, SUM(O.order_id) As Total_orders
+From ethanol.warehouse As W
+Inner Join ethanol.ordersfromniit As O
+On W.warehouse_id = O.warehouse_id
+Group by state
+Having SUM(O.order_id) > 48
